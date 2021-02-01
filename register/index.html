@@ -143,28 +143,30 @@
 <p>Register merupakan proses untuk mendaftar atau membuat akun baru ke dalam suatu layanan online. Tujuannya adalah agar kita bisa masuk dan mengakses konten utama dari layanan yang bersangkutan.</p>
 <p><br/></p>
 <h4 id="function">Function</h4>
-<pre><code class="php">function register($data) {
-    global $conn;
-    $username  = htmlspecialchars($data[&quot;username&quot;]);
-    $password  = htmlspecialchars($data[&quot;password&quot;]);
-    $password2 = htmlspecialchars($data[&quot;password2&quot;]);
+<pre><code class="php">&lt;?php 
+   function register($data) {
+      global $conn;
+      $username  = htmlspecialchars($data[&quot;username&quot;]);
+      $password  = htmlspecialchars($data[&quot;password&quot;]);
+      $password2 = htmlspecialchars($data[&quot;password2&quot;]);
 
-    $cek = $conn -&gt; query(&quot;SELECT username FROM user WHERE username='$username' &quot;);
-    if ($cek -&gt; num_rows &gt;= 1 ) {
-        global $errUname; $errUname = true;
-        return false;
-    }
+      $cek = $conn -&gt; query(&quot;SELECT username FROM user WHERE username='$username' &quot;);
+      if ($cek -&gt; num_rows &gt;= 1 ) {
+         global $errUname; $errUname = true;
+         return false;
+      }
 
-    if ($password !== $password2) {
-        global $errPw; $errPw = true;
-        return false;
-    }
+      if ($password !== $password2) {
+         global $errPw; $errPw = true;
+         return false;
+      }
 
-    $password = password_hash($password, PASSWORD_DEFAULT);
+      $password = password_hash($password, PASSWORD_DEFAULT);
 
-    $register = &quot;INSERT INTO user VALUE (NULL, '$username', '$password')&quot;;
-    return $conn -&gt; query($register);
-}
+      $register = &quot;INSERT INTO user VALUE (NULL, '$username', '$password')&quot;;
+      return $conn -&gt; query($register);
+   }
+?&gt;
 </code></pre>
 
 <blockquote>
@@ -188,14 +190,14 @@
 <p><br/></p>
 <h4 id="code-php">Code PHP</h4>
 <pre><code class="php">&lt;?php
-    require &quot;functions.php&quot;;
+   require &quot;functions.php&quot;;
 
-    if (isset($_POST[&quot;register&quot;])) {
-        if (register($_POST) === TRUE ) {
-            header(&quot;Location: login.php&quot;);
-        } else {
-            echo $conn -&gt; error;
-        }
+   if (isset($_POST[&quot;register&quot;])) {
+      if (register($_POST) === TRUE ) {
+         header(&quot;Location: login.php&quot;);
+      } else {
+         echo $conn -&gt; error;
+      }
    }
 ?&gt;
 </code></pre>
@@ -213,16 +215,7 @@
 </blockquote>
 <p><br/></p>
 <h4 id="code-html">Code HTML</h4>
-<pre><code class="php+HTML">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-
-&lt;head&gt;
-   &lt;meta charset=&quot;UTF-8&quot;&gt;
-   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-   &lt;title&gt;Register&lt;/title&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
+<pre><code class="php+HTML">&lt;body&gt;
    &lt;h2&gt;Register&lt;/h2&gt;&lt;br&gt;
    &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
       &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;&lt;br&gt;
@@ -245,8 +238,6 @@
       &lt;p&gt;Sudah punya akun? &lt;a href=&quot;login.php&quot;&gt;Masuk&lt;/a&gt;&lt;/p&gt;
    &lt;/form&gt;
 &lt;/body&gt;
-
-&lt;/html&gt;
 </code></pre>
 
 <blockquote>

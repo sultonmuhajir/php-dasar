@@ -163,75 +163,74 @@
 </blockquote>
 <p><br/></p>
 <h4 id="section-insert">Section Insert</h4>
-<pre><code class="php+HTML">&lt;div class=&quot;container mt-4&quot;&gt;
-    &lt;h2 class=&quot;text-center&quot;&gt;Tabel Mahasiswa&lt;/h2&gt;&lt;br&gt;
+<pre><code class="php+HTML">&lt;!-- Insert Data --&gt;
+&lt;div class=&quot;container mt-4&quot;&gt;
+   &lt;h2 class=&quot;text-center&quot;&gt;Tabel Mahasiswa&lt;/h2&gt;&lt;br&gt;
 
-    &lt;!-- Insert Data --&gt;
-    &lt;button type=&quot;button&quot; class=&quot;btn btn-success mx-auto&quot; data-bs-toggle=&quot;modal&quot; 
+   &lt;!-- Insert Data --&gt;
+   &lt;button type=&quot;button&quot; class=&quot;btn btn-success mx-auto&quot; data-bs-toggle=&quot;modal&quot; 
       data-bs-target=&quot;#create&quot; style=&quot;display: block;&quot;&gt; 
       &lt;i class=&quot;fas fa-plus-circle&quot;&gt;&lt;/i&gt;&amp;nbsp;Insert Data 
-    &lt;/button&gt;
-    &lt;?php
-        if (isset($_POST[&quot;insert&quot;]) ) {
-            if (insert($_POST) === TRUE ) {
-                echo &quot;&lt;script&gt;document.location.href='vModal.php';&lt;/script&gt;&quot;;
-            } else {
-                echo $conn -&gt; error;
-            }
-        }
-    ?&gt;
-    &lt;div class=&quot;modal fade&quot; id=&quot;create&quot; tabindex=&quot;-1&quot; 
-        aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
-        &lt;div class=&quot;modal-dialog modal-dialog-scrollable modal-dialog-centered&quot;&gt;
-            &lt;div class=&quot;modal-content&quot;&gt;
-                &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
-                    &lt;div class=&quot;modal-header&quot;&gt;
-                        &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Insert Data&lt;/h5&gt;
-                        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot; 
-                        aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
-                    &lt;/div&gt;
-                    &lt;div class=&quot;modal-body&quot;&gt;
+   &lt;/button&gt;
+   &lt;?php
+      if (isset($_POST[&quot;insert&quot;]) ) {
+         if (insert($_POST) === TRUE ) {
+            echo &quot;&lt;script&gt;document.location.href='index.php';&lt;/script&gt;&quot;;
+         } else {
+            echo $conn -&gt; error;
+         }
+      }
+   ?&gt;
+   &lt;div class=&quot;modal fade&quot; id=&quot;create&quot; tabindex=&quot;-1&quot; 
+      aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;div class=&quot;modal-dialog modal-dialog-scrollable modal-dialog-centered&quot;&gt;
+         &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
+               &lt;div class=&quot;modal-header&quot;&gt;
+                  &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Insert Data&lt;/h5&gt;
+                  &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot; 
+                  aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+               &lt;/div&gt;
+               &lt;div class=&quot;modal-body&quot;&gt;
+                  &lt;label for=&quot;nama&quot; class=&quot;form-label&quot;&gt;Nama&lt;/label&gt;
+                  &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;nama&quot; 
+                  id=&quot;nama&quot; autocomplete=&quot;off&quot; required&gt;
 
-                        &lt;label for=&quot;nama&quot; class=&quot;form-label&quot;&gt;Nama&lt;/label&gt;
-                        &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;nama&quot; 
-                        id=&quot;nama&quot; autocomplete=&quot;off&quot; required&gt;
+                  &lt;label for=&quot;prodi&quot; class=&quot;form-label&quot;&gt;Prodi&lt;/label&gt;
+                  &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;prodi&quot; 
+                  id=&quot;prodi&quot; autocomplete=&quot;off&quot; required&gt;
 
-                        &lt;label for=&quot;prodi&quot; class=&quot;form-label&quot;&gt;Prodi&lt;/label&gt;
-                        &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;prodi&quot; 
-                        id=&quot;prodi&quot; autocomplete=&quot;off&quot; required&gt;
+                  &lt;label for=&quot;fakultas&quot; class=&quot;form-label&quot;&gt;Fakultas&lt;/label&gt;
+                  &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;fakultas&quot;
+                  id=&quot;fakultas&quot; autocomplete=&quot;off&quot; required&gt;
 
-                        &lt;label for=&quot;fakultas&quot; class=&quot;form-label&quot;&gt;Fakultas&lt;/label&gt;
-                        &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;fakultas&quot;
-                        id=&quot;fakultas&quot; autocomplete=&quot;off&quot; required&gt;
-
-                        &lt;label for=&quot;gambar&quot; class=&quot;form-label&quot;&gt;Gambar&lt;/label&gt;
-                        &lt;input type=&quot;file&quot; class=&quot;form-control mb-3&quot; name=&quot;gambar&quot; 
-                        id=&quot;gambar&quot; required&gt;
-
-                    &lt;/div&gt;
-                    &lt;div class=&quot;modal-footer&quot;&gt;
-                        &lt;button type=&quot;submit&quot; name=&quot;insert&quot; 
-                        class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
-                    &lt;/div&gt;
-                &lt;/form&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;?php if(isset($errName)) : ?&gt;
-        &lt;script&gt;
-            alert(&quot;Nama Sudah Ada&quot;);
-        &lt;/script&gt;
-    &lt;?php endif ?&gt;
-    &lt;?php if(isset($errImg)) : ?&gt;
-        &lt;script&gt;
-            alert(&quot;Hanya Menerima File .jpg .png .jpeg&quot;);
-        &lt;/script&gt;
-    &lt;?php endif ?&gt;
-    &lt;?php if(isset($errSize)) : ?&gt;
-        &lt;script&gt;
-            alert(&quot;Maksimal Ukuran Gambar 1MB&quot;);
-        &lt;/script&gt;
-    &lt;?php endif ?&gt;
+                  &lt;label for=&quot;gambar&quot; class=&quot;form-label&quot;&gt;Gambar&lt;/label&gt;
+                  &lt;input type=&quot;file&quot; class=&quot;form-control mb-3&quot; name=&quot;gambar&quot; 
+                  id=&quot;gambar&quot; required&gt;
+               &lt;/div&gt;
+               &lt;div class=&quot;modal-footer&quot;&gt;
+                  &lt;button type=&quot;submit&quot; name=&quot;insert&quot; 
+                  class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+               &lt;/div&gt;
+            &lt;/form&gt;
+         &lt;/div&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;?php if(isset($errName)) : ?&gt;
+      &lt;script&gt;
+         alert(&quot;Nama Sudah Ada&quot;);
+      &lt;/script&gt;
+   &lt;?php endif ?&gt;
+   &lt;?php if(isset($errImg)) : ?&gt;
+      &lt;script&gt;
+         alert(&quot;Hanya Menerima File .jpg .png .jpeg&quot;);
+      &lt;/script&gt;
+   &lt;?php endif ?&gt;
+   &lt;?php if(isset($errSize)) : ?&gt;
+      &lt;script&gt;
+         alert(&quot;Maksimal Ukuran Gambar 1MB&quot;);
+      &lt;/script&gt;
+   &lt;?php endif ?&gt;
 </code></pre>
 
 <blockquote>
@@ -252,38 +251,38 @@
 <h4 id="section-read">Section Read</h4>
 <pre><code class="php+HTML">&lt;!-- Read Data --&gt;
 &lt;table class=&quot;table table-striped table-borderless&quot; id=&quot;myTable&quot; 
-    style=&quot;padding: 20px 0;&quot;&gt;
-    &lt;thead class=&quot;table-dark&quot;&gt;
-        &lt;tr&gt;
-            &lt;th&gt;No&lt;/th&gt;
-            &lt;th&gt;Gambar&lt;/th&gt;
-            &lt;th&gt;Nama&lt;/th&gt;
-            &lt;th&gt;Prodi&lt;/th&gt;
-            &lt;th&gt;Fakultas&lt;/th&gt;
-            &lt;th&gt;Aksi&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
+   style=&quot;padding: 20px 0;&quot;&gt;
+   &lt;thead class=&quot;table-dark&quot;&gt;
+      &lt;tr&gt;
+         &lt;th&gt;No&lt;/th&gt;
+         &lt;th&gt;Gambar&lt;/th&gt;
+         &lt;th&gt;Nama&lt;/th&gt;
+         &lt;th&gt;Prodi&lt;/th&gt;
+         &lt;th&gt;Fakultas&lt;/th&gt;
+         &lt;th&gt;Aksi&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
 
-    &lt;tbody&gt;
-        &lt;?php $i = 1 ?&gt;
-        &lt;?php while($row = $result -&gt; fetch_assoc()) : ?&gt;
-        &lt;tr&gt;
-            &lt;td&gt;&lt;?= $i++ ?&gt;&lt;/td&gt;
-            &lt;td&gt;&lt;img src=&quot;img/&lt;?= $row['gambar'] ?&gt;&quot; alt=&quot;Gambar&quot; width=&quot;60&quot;&gt;&lt;/td&gt;
-            &lt;td&gt;&lt;?= $row[&quot;nama&quot;] ?&gt;&lt;/td&gt;
-            &lt;td&gt;&lt;?= $row[&quot;prodi&quot;] ?&gt;&lt;/td&gt;
-            &lt;td&gt;&lt;?= $row[&quot;fakultas&quot;] ?&gt;&lt;/td&gt;
-            &lt;td width=&quot;100&quot;&gt;
-                &lt;a href=&quot;&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#id&lt;?= $row[&quot;id&quot;] ?&gt;&quot;
-                    style=&quot;text-decoration: none&quot;&gt;
-                    &lt;i class=&quot;fas fa-edit&quot; style=&quot;color: blue&quot;&gt;&lt;/i&gt;
-                &lt;/a&gt; &amp;emsp;
-                &lt;a href=&quot;delete.php?id=&lt;?= $row['id'] ?&gt;&quot; onclick=&quot;return confirm('Yakin?')&quot;
-                    style=&quot;text-decoration: none&quot;&gt;
-                    &lt;i class=&quot;fas fa-trash-alt&quot; style=&quot;color: red&quot;&gt;&lt;/i&gt;
-                &lt;/a&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
+   &lt;tbody&gt;
+      &lt;?php $i = 1 ?&gt;
+      &lt;?php while($row = $result -&gt; fetch_assoc()) : ?&gt;
+      &lt;tr&gt;
+         &lt;td&gt;&lt;?= $i++ ?&gt;&lt;/td&gt;
+         &lt;td&gt;&lt;img src=&quot;img/&lt;?= $row['gambar'] ?&gt;&quot; alt=&quot;Gambar&quot; width=&quot;60&quot;&gt;&lt;/td&gt;
+         &lt;td&gt;&lt;?= $row[&quot;nama&quot;] ?&gt;&lt;/td&gt;
+         &lt;td&gt;&lt;?= $row[&quot;prodi&quot;] ?&gt;&lt;/td&gt;
+         &lt;td&gt;&lt;?= $row[&quot;fakultas&quot;] ?&gt;&lt;/td&gt;
+         &lt;td width=&quot;100&quot;&gt;
+            &lt;a href=&quot;&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#id&lt;?= $row[&quot;id&quot;] ?&gt;&quot;
+               style=&quot;text-decoration: none&quot;&gt;
+               &lt;i class=&quot;fas fa-edit&quot; style=&quot;color: blue&quot;&gt;&lt;/i&gt;
+            &lt;/a&gt; &amp;emsp;
+            &lt;a href=&quot;delete.php?id=&lt;?= $row['id'] ?&gt;&quot; onclick=&quot;return confirm('Yakin?')&quot;
+               style=&quot;text-decoration: none&quot;&gt;
+               &lt;i class=&quot;fas fa-trash-alt&quot; style=&quot;color: red&quot;&gt;&lt;/i&gt;
+            &lt;/a&gt;
+         &lt;/td&gt;
+      &lt;/tr&gt;
 </code></pre>
 
 <blockquote>
@@ -297,65 +296,64 @@
 <h4 id="section-update">Section Update</h4>
 <pre><code class="php+HTML">&lt;!-- Update Data --&gt;
 &lt;?php
-    if (isset($_POST[&quot;update&quot;]) ) {
-        if (update($_POST) === TRUE ) {
-            echo &quot;&lt;script&gt;document.location.href='vModal.php';&lt;/script&gt;&quot;;
-        } else {
-            echo $conn -&gt; error;
-        }
-    }
+   if (isset($_POST[&quot;update&quot;]) ) {
+      if (update($_POST) === TRUE ) {
+         echo &quot;&lt;script&gt;document.location.href='index.php';&lt;/script&gt;&quot;;
+      } else {
+         echo $conn -&gt; error;
+      }
+   }
 ?&gt;
 &lt;div class=&quot;modal fade&quot; id=&quot;id&lt;?= $row[&quot;id&quot;] ?&gt;&quot; tabindex=&quot;-1&quot; 
-    aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
-    &lt;div class=&quot;modal-dialog modal-dialog-scrollable modal-dialog-centered&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
-                &lt;div class=&quot;modal-header&quot;&gt;
-                    &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Update Data&lt;/h5&gt;
-                    &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot; 
-                    aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;modal-body&quot;&gt;
+   aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+   &lt;div class=&quot;modal-dialog modal-dialog-scrollable modal-dialog-centered&quot;&gt;
+      &lt;div class=&quot;modal-content&quot;&gt;
+         &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
+            &lt;div class=&quot;modal-header&quot;&gt;
+               &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Update Data&lt;/h5&gt;
+               &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot; 
+               aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-body&quot;&gt;
+               &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;?= $row[&quot;id&quot;] ?&gt;&quot;&gt;
+               &lt;input type=&quot;hidden&quot; name=&quot;gambarLama&quot; value=&quot;&lt;?= $row[&quot;gambar&quot;] ?&gt;&quot;&gt;
 
-                    &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;?= $row[&quot;id&quot;] ?&gt;&quot;&gt;
-                    &lt;input type=&quot;hidden&quot; name=&quot;gambarLama&quot; value=&quot;&lt;?= $row[&quot;gambar&quot;] ?&gt;&quot;&gt;
+               &lt;label for=&quot;nama&quot; class=&quot;form-label&quot;&gt;Nama&lt;/label&gt;
+               &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;nama&quot; 
+               id=&quot;nama&quot; autocomplete=&quot;off&quot; required value=&quot;&lt;?= $row[&quot;nama&quot;] ?&gt;&quot;&gt;
 
-                    &lt;label for=&quot;nama&quot; class=&quot;form-label&quot;&gt;Nama&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;nama&quot; 
-                    id=&quot;nama&quot; autocomplete=&quot;off&quot; required value=&quot;&lt;?= $row[&quot;nama&quot;] ?&gt;&quot;&gt;
+               &lt;label for=&quot;prodi&quot; class=&quot;form-label&quot;&gt;Prodi&lt;/label&gt;
+               &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;prodi&quot; 
+               id=&quot;prodi&quot; autocomplete=&quot;off&quot; required value=&quot;&lt;?= $row[&quot;prodi&quot;] ?&gt;&quot;&gt;
 
-                    &lt;label for=&quot;prodi&quot; class=&quot;form-label&quot;&gt;Prodi&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;prodi&quot; 
-                    id=&quot;prodi&quot; autocomplete=&quot;off&quot; required value=&quot;&lt;?= $row[&quot;prodi&quot;] ?&gt;&quot;&gt;
+               &lt;label for=&quot;fakultas&quot; class=&quot;form-label&quot;&gt;Fakultas&lt;/label&gt;
+               &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;fakultas&quot; 
+               id=&quot;fakultas&quot; autocomplete=&quot;off&quot; required value=&quot;&lt;?= $row[&quot;fakultas&quot;] ?&gt;&quot;&gt;
 
-                    &lt;label for=&quot;fakultas&quot; class=&quot;form-label&quot;&gt;Fakultas&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;fakultas&quot; 
-                    id=&quot;fakultas&quot; autocomplete=&quot;off&quot; required value=&quot;&lt;?= $row[&quot;fakultas&quot;] ?&gt;&quot;&gt;
-
-                    &lt;label for=&quot;gambar&quot; class=&quot;form-label&quot;&gt;Gambar&lt;/label&gt;&lt;br&gt;
-                    &lt;img src=&quot;img/&lt;?= $row['gambar'] ?&gt;&quot; alt=&quot;Gambar&quot; 
-                    width=&quot;100&quot; class=&quot;mb-2&quot;&gt;
-                    &lt;input type=&quot;file&quot; class=&quot;form-control mb-3&quot; name=&quot;gambar&quot; 
-                    id=&quot;gambar&quot;&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;modal-footer&quot;&gt;
-                    &lt;button type=&quot;submit&quot; name=&quot;update&quot; 
-                    class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/form&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+               &lt;label for=&quot;gambar&quot; class=&quot;form-label&quot;&gt;Gambar&lt;/label&gt;&lt;br&gt;
+               &lt;img src=&quot;img/&lt;?= $row['gambar'] ?&gt;&quot; alt=&quot;Gambar&quot; 
+               width=&quot;100&quot; class=&quot;mb-2&quot;&gt;
+               &lt;input type=&quot;file&quot; class=&quot;form-control mb-3&quot; name=&quot;gambar&quot; 
+               id=&quot;gambar&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-footer&quot;&gt;
+               &lt;button type=&quot;submit&quot; name=&quot;update&quot; 
+               class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+            &lt;/div&gt;
+         &lt;/form&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
 &lt;/div&gt;
 &lt;?php endwhile ?&gt;
 &lt;?php if(isset($errImg)) : ?&gt;
-    &lt;script&gt;
-        alert(&quot;Hanya Menerima File .jpg .png .jpeg&quot;);
-    &lt;/script&gt;
+   &lt;script&gt;
+      alert(&quot;Hanya Menerima File .jpg .png .jpeg&quot;);
+   &lt;/script&gt;
 &lt;?php endif ?&gt;
 &lt;?php if(isset($errSize)) : ?&gt;
-    &lt;script&gt;
-        alert(&quot;Maksimal Ukuran Gambar 1MB&quot;);
-    &lt;/script&gt;
+   &lt;script&gt;
+      alert(&quot;Maksimal Ukuran Gambar 1MB&quot;);
+   &lt;/script&gt;
 &lt;?php endif ?&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 </code></pre>
 

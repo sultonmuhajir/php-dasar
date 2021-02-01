@@ -144,15 +144,15 @@
 <p><br/></p>
 <h4 id="function">Function</h4>
 <pre><code class="php">&lt;?php 
-    function search($key) {
-        global $conn;
-        $search = &quot;SELECT * FROM mahasiswa WHERE 
-                        nama LIKE '%$key%' OR
-                        prodi LIKE '%$key%' OR
-                        fakultas LIKE '%$key%' &quot;;
+   function search($key) {
+      global $conn;
+      $search = &quot;SELECT * FROM mahasiswa WHERE 
+                     nama LIKE '%$key%' OR
+                     prodi LIKE '%$key%' OR
+                     fakultas LIKE '%$key%' &quot;;
 
-        return $conn -&gt; query($search);
-    }
+      return $conn -&gt; query($search);
+   }
 ?&gt;
 </code></pre>
 
@@ -170,13 +170,13 @@
 <p><br/></p>
 <h4 id="code-php">Code PHP</h4>
 <pre><code class="php">&lt;?php
-    require &quot;functions.php&quot;;
+   require &quot;functions.php&quot;;
 
-    $result = $conn -&gt; query(&quot;SELECT * FROM mahasiswa&quot;);
+   $result = $conn -&gt; query(&quot;SELECT * FROM mahasiswa&quot;);
 
-    if (isset($_POST[&quot;search&quot;]) ) {
-        $result = search($_POST[&quot;key&quot;]);
-    }
+   if (isset($_POST[&quot;search&quot;]) ) {
+      $result = search($_POST[&quot;key&quot;]);
+   }
 ?&gt;
 </code></pre>
 

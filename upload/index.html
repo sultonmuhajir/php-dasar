@@ -141,31 +141,31 @@
 <p><br/></p>
 <h4 id="function">Function</h4>
 <pre><code class="php">&lt;?php 
-    function upload() {
-        // $id         = $_POST[&quot;id&quot;];
-        $namaFile   = $_FILES[&quot;gambar&quot;][&quot;name&quot;];
-        $ukuranFile = $_FILES[&quot;gambar&quot;][&quot;size&quot;];
-        $tmpName    = $_FILES[&quot;gambar&quot;][&quot;tmp_name&quot;];
+   function upload() {
+      // $id         = $_POST[&quot;id&quot;];
+      $namaFile   = $_FILES[&quot;gambar&quot;][&quot;name&quot;];
+      $ukuranFile = $_FILES[&quot;gambar&quot;][&quot;size&quot;];
+      $tmpName    = $_FILES[&quot;gambar&quot;][&quot;tmp_name&quot;];
 
-        $ekstensiGambarValid = [&quot;jpg&quot;, &quot;png&quot;, &quot;jpeg&quot;];
-        $ekstensiGambar = explode(&quot;.&quot;, $namaFile);
-        $ekstensiGambar = strtoLower(end($ekstensiGambar));
-        if(!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-            global $errImg; $errImg = true;
-            return false;
-        }
+      $ekstensiGambarValid = [&quot;jpg&quot;, &quot;png&quot;, &quot;jpeg&quot;];
+      $ekstensiGambar = explode(&quot;.&quot;, $namaFile);
+      $ekstensiGambar = strtoLower(end($ekstensiGambar));
+      if(!in_array($ekstensiGambar, $ekstensiGambarValid)) {
+         global $errImg; $errImg = true;
+         return false;
+      }
 
-        if($ukuranFile &gt; 1000000) {
-            global $errSize; $errSize = true;
-            return false;
-        }
+      if($ukuranFile &gt; 1000000) {
+         global $errSize; $errSize = true;
+         return false;
+      }
 
-        // $gambar = &quot;id&quot;.$id.&quot;.&quot;.$ekstensiGambar;
-        $gambar = uniqid().&quot;.&quot;.$ekstensiGambar;
+      // $gambar = &quot;id&quot;.$id.&quot;.&quot;.$ekstensiGambar;
+      $gambar = uniqid().&quot;.&quot;.$ekstensiGambar;
 
-        move_uploaded_file($tmpName, &quot;img/&quot;.$gambar);
-        return $gambar;
-    }
+      move_uploaded_file($tmpName, &quot;img/&quot;.$gambar);
+      return $gambar;
+   }
 ?&gt;
 </code></pre>
 

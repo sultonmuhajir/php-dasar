@@ -143,31 +143,33 @@
 <p>Update merupakan proses mengubah data yang ada di database. Contoh proses ini ketika kita ingin mengubah data yang sudah kita masukkan  sebelumnya pada sebuah halaman website. Saat kita melakukannya maka yang sebenarnya terjadi adalah website akan mengirimkan proses Update ke dalam database. Kemudian database meresponnya dengan mengubah data lama menjadi data baru sesuai yang kita masukkan pada halaman ubah.</p>
 <p><br/></p>
 <h4 id="function">Function</h4>
-<pre><code class="php">function update($data){
-    global $conn;
-    $id       = $data[&quot;id&quot;];
-    $nama     = htmlspecialchars($data[&quot;nama&quot;]);
-    $prodi    = htmlspecialchars($data[&quot;prodi&quot;]);
-    $fakultas = htmlspecialchars($data[&quot;fakultas&quot;]);
+<pre><code class="php">&lt;?php 
+   function update($data){
+      global $conn;
+      $id       = $data[&quot;id&quot;];
+      $nama     = htmlspecialchars($data[&quot;nama&quot;]);
+      $prodi    = htmlspecialchars($data[&quot;prodi&quot;]);
+      $fakultas = htmlspecialchars($data[&quot;fakultas&quot;]);
 
-    $gambarLama = ($data[&quot;gambarLama&quot;]);
-    if ($_FILES[&quot;gambar&quot;][&quot;error&quot;] === 4 ) {
-        $gambar = $gambarLama;
-    } else {
-        $gambar = upload();
-        if (!$gambar) {
+      $gambarLama = ($data[&quot;gambarLama&quot;]);
+      if ($_FILES[&quot;gambar&quot;][&quot;error&quot;] === 4 ) {
+         $gambar = $gambarLama;
+      } else {
+         $gambar = upload();
+         if (!$gambar) {
             return false;
-        }
-    }
+         }
+      }
 
-    $update = &quot;UPDATE mahasiswa SET 
+      $update = &quot;UPDATE mahasiswa SET 
                         nama     = '$nama',
                         gambar   = '$gambar',
                         prodi    = '$prodi',
                         fakultas = '$fakultas'
-                    WHERE id=$id&quot;;
-    return $conn -&gt; query($update);
-}
+                     WHERE id=$id&quot;;
+      return $conn -&gt; query($update);
+   }
+?&gt;
 </code></pre>
 
 <blockquote>
@@ -187,18 +189,18 @@
 <p><br/></p>
 <h4 id="code-php">Code PHP</h4>
 <pre><code class="php">&lt;?php
-    require &quot;functions.php&quot;;
+   require &quot;functions.php&quot;;
 
-    $id = $_GET[&quot;id&quot;];
-    $result = $conn -&gt; query(&quot;SELECT * FROM mahasiswa WHERE id=$id&quot;);
+   $id = $_GET[&quot;id&quot;];
+   $result = $conn -&gt; query(&quot;SELECT * FROM mahasiswa WHERE id=$id&quot;);
 
-    if (isset($_POST[&quot;update&quot;]) ) {
-        if (update($_POST) === TRUE ) {
-            header(&quot;Location: index.php&quot;);
-        } else {
-            echo $conn -&gt; error;
-        }
-    }
+   if (isset($_POST[&quot;update&quot;]) ) {
+      if (update($_POST) === TRUE ) {
+         header(&quot;Location: index.php&quot;);
+      } else {
+         echo $conn -&gt; error;
+      }
+   }
 ?&gt;
 </code></pre>
 

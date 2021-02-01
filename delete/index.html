@@ -140,17 +140,16 @@
 <p><br/></p>
 <h4 id="code-php">Code PHP</h4>
 <pre><code class="php">&lt;?php 
-    require &quot;functions.php&quot;;
+   require &quot;functions.php&quot;;
 
-    $id     = $_GET[&quot;id&quot;];
-    $delete = &quot;DELETE FROM mahasiswa WHERE id = $id&quot;;
+   $id     = $_GET[&quot;id&quot;];
+   $delete = &quot;DELETE FROM mahasiswa WHERE id = $id&quot;;
 
-    if ($conn -&gt; query($delete) === TRUE ) {
-        header(&quot;Location: index.php&quot;);
-    } else {
-        echo $conn -&gt; error;
-    }
-
+   if ($conn -&gt; query($delete) === TRUE ) {
+      header(&quot;Location: index.php&quot;);
+   } else {
+      echo $conn -&gt; error;
+   }
 ?&gt;
 </code></pre>
 

@@ -143,25 +143,27 @@
 <p>Login adalah suatu proses untuk masuk ke dalam sebuah layanan online. Metode login sendiri sekarang sudah variatif. Login bisa dilakukan dengan menggunakan username dan password, atau bisa juga menggunakan social media yang terintegrasi pada sistem tersebut.</p>
 <p><br/></p>
 <h4 id="function">Function</h4>
-<pre><code class="php">function login($data) {  
-    global $conn;
-    $username = $data[&quot;username&quot;];
-    $password = $data[&quot;password&quot;];
+<pre><code class="php">&lt;?php 
+   function login($data) {  
+      global $conn;
+      $username = $data[&quot;username&quot;];
+      $password = $data[&quot;password&quot;];
 
-    $cek = $conn -&gt; query(&quot;SELECT * FROM user WHERE username='$username'&quot;);
-    if($cek -&gt; num_rows &gt;= 1) {
-        $row = $cek -&gt; fetch_assoc();
-        if (password_verify($password, $row[&quot;password&quot;])) {
+      $cek = $conn -&gt; query(&quot;SELECT * FROM user WHERE username='$username'&quot;);
+      if($cek -&gt; num_rows &gt;= 1) {
+         $row = $cek -&gt; fetch_assoc();
+         if (password_verify($password, $row[&quot;password&quot;])) {
             $_SESSION[&quot;login&quot;] = true;
             $_SESSION[&quot;username&quot;] = $username;
-        } else {
+         } else {
             global $errPw; $errPw = true;
             return false;
-        }
-    }
-    global $errAcc; $errAcc = true;
-    return $conn -&gt; affected_rows;
-}
+         }
+      }
+      global $errAcc; $errAcc = true;
+      return $conn -&gt; affected_rows;
+   }
+?&gt;
 </code></pre>
 
 <blockquote>
@@ -185,15 +187,15 @@
 <p><br/></p>
 <h4 id="code-php">Code PHP</h4>
 <pre><code class="php">&lt;?php
-    require &quot;functions.php&quot;;
+   require &quot;functions.php&quot;;
 
-    if (isset($_POST[&quot;login&quot;])) {
-        if (login($_POST) &gt; 0) {
-            header(&quot;Location: index.php&quot;);
-        } else {
-            echo $conn -&gt; error;
-        }
-    }
+   if (isset($_POST[&quot;login&quot;])) {
+      if (login($_POST) &gt; 0) {
+         header(&quot;Location: index.php&quot;);
+      } else {
+         echo $conn -&gt; error;
+      }
+   }
 ?&gt;
 </code></pre>
 
@@ -210,16 +212,7 @@
 </blockquote>
 <p><br/></p>
 <h4 id="code-html">Code HTML</h4>
-<pre><code class="php+HTML">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-
-&lt;head&gt;
-   &lt;meta charset=&quot;UTF-8&quot;&gt;
-   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-   &lt;title&gt;Login&lt;/title&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
+<pre><code class="php+HTML">&lt;body&gt;
    &lt;h2&gt;Login&lt;/h2&gt;&lt;br&gt;
    &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
       &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;&lt;br&gt;
@@ -239,8 +232,6 @@
       &lt;p&gt;Belum punya akun? &lt;a href=&quot;register.php&quot;&gt;Buat Akun&lt;/a&gt;&lt;/p&gt;
    &lt;/form&gt;
 &lt;/body&gt;
-
-&lt;/html&gt;
 </code></pre>
 
 <blockquote>
