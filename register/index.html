@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Register - PHP Dasar</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Register";
+    var mkdocs_page_input_path = "register.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> PHP Dasar</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../read/">Read</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../insert/">Insert</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../update/">Update</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../delete/">Delete</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../upload/">Upload</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pagination/">Pagination</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../combined/">Combined</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Register</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#function">Function</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#code-php">Code PHP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#code-html">Code HTML</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../login/">Login</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../session/">Session</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cookie/">Cookie</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">PHP Dasar</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Register</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="register">Register</h1>
+<p>Register merupakan proses untuk mendaftar atau membuat akun baru ke dalam suatu layanan online. Tujuannya adalah agar kita bisa masuk dan mengakses konten utama dari layanan yang bersangkutan.</p>
+<p><br/></p>
+<h4 id="function">Function</h4>
+<pre><code class="php">function register($data) {
+    global $conn;
+    $username  = htmlspecialchars($data[&quot;username&quot;]);
+    $password  = htmlspecialchars($data[&quot;password&quot;]);
+    $password2 = htmlspecialchars($data[&quot;password2&quot;]);
+
+    $cek = $conn -&gt; query(&quot;SELECT username FROM user WHERE username='$username' &quot;);
+    if ($cek -&gt; num_rows &gt;= 1 ) {
+        global $errUname; $errUname = true;
+        return false;
+    }
+
+    if ($password !== $password2) {
+        global $errPw; $errPw = true;
+        return false;
+    }
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    $register = &quot;INSERT INTO user VALUE (NULL, '$username', '$password')&quot;;
+    return $conn -&gt; query($register);
+}
+</code></pre>
+
+<blockquote>
+<ul>
+<li>register() <b>-&gt;</b> fungsi yang dibuat untuk registrasi.</li>
+<li>$data <b>-&gt;</b> parameter dari fungsi register() berupa data yang dikirimkan.</li>
+<li>htmlspecialchars() <b>-&gt;</b> fungsi untuk mengkonversi karakter khusus menjadi entitas html.</li>
+<li>$cek <b>-&gt;</b> variabel untuk menampung hasil query yang dibuat untuk cek data.</li>
+<li>$conn <b>-&gt;</b> variabel global yang berisi koneksi ke database.</li>
+<li>query() <b>-&gt;</b> fungsi untuk membuat query.</li>
+<li>num_rows <b>-&gt;</b> objek untuk mengetahui jumlah baris dari tabel hasil query.</li>
+<li>global <b>-&gt;</b> syntax untuk memanggil elemen global, elemen diluar fungsi.</li>
+<li>$err.. <b>-&gt;</b> variabel yang menampung status data error.</li>
+<li>password_hash() <b>-&gt;</b> fungsi untuk melakukan hashing menggunakan algoritma satu arah.</li>
+<li>PASSWORD_DEFAULT <b>-&gt;</b> algoritma bawaan untuk melakukan hash.</li>
+<li>$register <b>-&gt;</b> variabel untuk menampung query register.</li>
+<li>return <b>-&gt;</b> nilai yang dikembalikan saat fungsi dipanggil.
+</li>
+</ul>
+</blockquote>
+<p><br/></p>
+<h4 id="code-php">Code PHP</h4>
+<pre><code class="php">&lt;?php
+    require &quot;functions.php&quot;;
+
+    if (isset($_POST[&quot;register&quot;])) {
+        if (register($_POST) === TRUE ) {
+            header(&quot;Location: login.php&quot;);
+        } else {
+            echo $conn -&gt; error;
+        }
+   }
+?&gt;
+</code></pre>
+
+<blockquote>
+<ul>
+<li>require <b>-&gt;</b> fungsi untuk memuat file php lain.</li>
+<li>isset() <b>-&gt;</b> fungsi untuk memeriksa status objek.</li>
+<li>$_POST <b>-&gt;</b> variabel superglobal untuk menampung data yang dikirimkan.</li>
+<li>register() <b>-&gt;</b> fungsi yang dibuat untuk registrasi.</li>
+<li>header() <b>-&gt;</b> fungsi untuk redirect halaman.</li>
+<li>echo <b>-&gt;</b> fungsi untuk menampilkan teks ke layar.</li>
+<li>error <b>-&gt;</b> objek untuk cek error yang terjadi.</li>
+</ul>
+</blockquote>
+<p><br/></p>
+<h4 id="code-html">Code HTML</h4>
+<pre><code class="php+HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;Register&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;h2&gt;Register&lt;/h2&gt;&lt;br&gt;
+   &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
+      &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;&lt;br&gt;
+      &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;username&quot; autocomplete=&quot;off&quot; required&gt;&lt;br&gt;&lt;br&gt;
+
+      &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;&lt;br&gt;
+      &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; required&gt;&lt;br&gt;&lt;br&gt;
+
+      &lt;label for=&quot;password2&quot;&gt;Confirm Pasword&lt;/label&gt;&lt;br&gt;
+      &lt;input type=&quot;password&quot; name=&quot;password2&quot; id=&quot;password2&quot; required&gt;&lt;br&gt;&lt;br&gt;
+
+      &lt;button type=&quot;submit&quot; name=&quot;register&quot;&gt; Submit &lt;/button&gt;&amp;emsp;
+      &lt;?php if(isset($errUname)) : ?&gt;
+         &lt;i style=&quot;color: red;&quot;&gt;Username Sudah Terdaftar&lt;/i&gt;
+      &lt;?php endif ?&gt;
+      &lt;?php if(isset($errPw)) : ?&gt;
+         &lt;i style=&quot;color: red;&quot;&gt;Password Tidak Sesuai&lt;/i&gt;
+      &lt;?php endif ?&gt;
+
+      &lt;p&gt;Sudah punya akun? &lt;a href=&quot;login.php&quot;&gt;Masuk&lt;/a&gt;&lt;/p&gt;
+   &lt;/form&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<blockquote>
+<ul>
+<li>isset() <b>-&gt;</b> fungsi untuk memeriksa status objek.</li>
+<li>$err.. <b>-&gt;</b> variabel yang menampung status data error.</li>
+</ul>
+</blockquote>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../login/" class="btn btn-neutral float-right" title="Login">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../combined/" class="btn btn-neutral" title="Combined"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy; 2020 All Rights Reserved by Sulton Muhajir</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../combined/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../login/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

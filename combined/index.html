@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Combined - PHP Dasar</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Combined";
+    var mkdocs_page_input_path = "combined.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> PHP Dasar</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../read/">Read</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../insert/">Insert</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../update/">Update</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../delete/">Delete</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../upload/">Upload</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pagination/">Pagination</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Combined</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#code-php">Code PHP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#section-insert">Section Insert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#section-read">Section Read</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#section-update">Section Update</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../register/">Register</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../login/">Login</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../session/">Session</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cookie/">Cookie</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">PHP Dasar</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Combined</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="crud-data-combined">Crud Data - Combined</h1>
+<p>CRUD adalah singkatan dari Create, Read, Update, dan Delete. Proses ini sangat berkaitan dengan pengambilan atau transaksi data dari atau ke database. Hal ini menjadi krusial apabila berhubungan dengan sistem informasi perusahaan karena data yang diproses biasanya merupakan data transaksi.</p>
+<p>Bagi PHP Developer, operasi CRUD biasanya menjadi pillar untuk mempelajari proses pengelolaan data menggunakan PHP dan tentu saja MySQL database. CRUD ini bisa diibaratkan sebagai jalur atau koneksi yang menghubungkan antara bahasa pemrograman PHP dengan MySQL.</p>
+<p>Pada halaman ini akan dicontohkan penggabungan dari proses Create, Read, Update, dan Delete data. Tools yang digunakan adalah modal bootstrap dan datatables.</p>
+<p><br/></p>
+<h4 id="code-php">Code PHP</h4>
+<pre><code class="php">&lt;?php
+   require &quot;functions.php&quot;;
+   $result = $conn -&gt; query(&quot;SELECT * FROM mahasiswa&quot;);
+?&gt;
+</code></pre>
+
+<blockquote>
+<ul>
+<li>require <b>-&gt;</b> fungsi untuk memuat file php lain.</li>
+<li>$result <b>-&gt;</b> variabel untuk menampung hasil query yang dibuat.</li>
+<li>$conn <b>-&gt;</b> variabel global yang berisi koneksi ke database.</li>
+<li>query() <b>-&gt;</b> fungsi untuk membuat query.</li>
+</ul>
+</blockquote>
+<p><br/></p>
+<h4 id="section-insert">Section Insert</h4>
+<pre><code class="php+HTML">&lt;div class=&quot;container mt-4&quot;&gt;
+    &lt;h2 class=&quot;text-center&quot;&gt;Tabel Mahasiswa&lt;/h2&gt;&lt;br&gt;
+
+    &lt;!-- Insert Data --&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-success mx-auto&quot; data-bs-toggle=&quot;modal&quot; 
+      data-bs-target=&quot;#create&quot; style=&quot;display: block;&quot;&gt; 
+      &lt;i class=&quot;fas fa-plus-circle&quot;&gt;&lt;/i&gt;&amp;nbsp;Insert Data 
+    &lt;/button&gt;
+    &lt;?php
+        if (isset($_POST[&quot;insert&quot;]) ) {
+            if (insert($_POST) === TRUE ) {
+                echo &quot;&lt;script&gt;document.location.href='vModal.php';&lt;/script&gt;&quot;;
+            } else {
+                echo $conn -&gt; error;
+            }
+        }
+    ?&gt;
+    &lt;div class=&quot;modal fade&quot; id=&quot;create&quot; tabindex=&quot;-1&quot; 
+        aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;div class=&quot;modal-dialog modal-dialog-scrollable modal-dialog-centered&quot;&gt;
+            &lt;div class=&quot;modal-content&quot;&gt;
+                &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
+                    &lt;div class=&quot;modal-header&quot;&gt;
+                        &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Insert Data&lt;/h5&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot; 
+                        aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;modal-body&quot;&gt;
+
+                        &lt;label for=&quot;nama&quot; class=&quot;form-label&quot;&gt;Nama&lt;/label&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;nama&quot; 
+                        id=&quot;nama&quot; autocomplete=&quot;off&quot; required&gt;
+
+                        &lt;label for=&quot;prodi&quot; class=&quot;form-label&quot;&gt;Prodi&lt;/label&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;prodi&quot; 
+                        id=&quot;prodi&quot; autocomplete=&quot;off&quot; required&gt;
+
+                        &lt;label for=&quot;fakultas&quot; class=&quot;form-label&quot;&gt;Fakultas&lt;/label&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;fakultas&quot;
+                        id=&quot;fakultas&quot; autocomplete=&quot;off&quot; required&gt;
+
+                        &lt;label for=&quot;gambar&quot; class=&quot;form-label&quot;&gt;Gambar&lt;/label&gt;
+                        &lt;input type=&quot;file&quot; class=&quot;form-control mb-3&quot; name=&quot;gambar&quot; 
+                        id=&quot;gambar&quot; required&gt;
+
+                    &lt;/div&gt;
+                    &lt;div class=&quot;modal-footer&quot;&gt;
+                        &lt;button type=&quot;submit&quot; name=&quot;insert&quot; 
+                        class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;?php if(isset($errName)) : ?&gt;
+        &lt;script&gt;
+            alert(&quot;Nama Sudah Ada&quot;);
+        &lt;/script&gt;
+    &lt;?php endif ?&gt;
+    &lt;?php if(isset($errImg)) : ?&gt;
+        &lt;script&gt;
+            alert(&quot;Hanya Menerima File .jpg .png .jpeg&quot;);
+        &lt;/script&gt;
+    &lt;?php endif ?&gt;
+    &lt;?php if(isset($errSize)) : ?&gt;
+        &lt;script&gt;
+            alert(&quot;Maksimal Ukuran Gambar 1MB&quot;);
+        &lt;/script&gt;
+    &lt;?php endif ?&gt;
+</code></pre>
+
+<blockquote>
+<ul>
+<li>isset() <b>-&gt;</b> fungsi untuk memeriksa status objek.</li>
+<li>$_POST <b>-&gt;</b> variabel superglobal untuk menampung data yang dikirimkan.</li>
+<li>insert() <b>-&gt;</b> fungsi yang dibuat untuk menambahkan data.</li>
+<li>echo <b>-&gt;</b> fungsi untuk menampilkan teks ke layar.</li>
+<li>script <b>-&gt;</b> elemen untuk menuliskan syntax javascript.</li>
+<li>document.location.href <b>-&gt;</b> redirect halaman versi javascript.</li>
+<li>$conn <b>-&gt;</b> variabel global yang berisi koneksi ke database.</li>
+<li>error <b>-&gt;</b> objek untuk cek error yang terjadi.</li>
+<li>$err.. <b>-&gt;</b> variabel yang menampung status data error.</li>
+<li>alert() <b>-&gt;</b> fungsi javascript untuk menampilkan pop-up dialog.</li>
+</ul>
+</blockquote>
+<p><br/></p>
+<h4 id="section-read">Section Read</h4>
+<pre><code class="php+HTML">&lt;!-- Read Data --&gt;
+&lt;table class=&quot;table table-striped table-borderless&quot; id=&quot;myTable&quot; 
+    style=&quot;padding: 20px 0;&quot;&gt;
+    &lt;thead class=&quot;table-dark&quot;&gt;
+        &lt;tr&gt;
+            &lt;th&gt;No&lt;/th&gt;
+            &lt;th&gt;Gambar&lt;/th&gt;
+            &lt;th&gt;Nama&lt;/th&gt;
+            &lt;th&gt;Prodi&lt;/th&gt;
+            &lt;th&gt;Fakultas&lt;/th&gt;
+            &lt;th&gt;Aksi&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;?php $i = 1 ?&gt;
+        &lt;?php while($row = $result -&gt; fetch_assoc()) : ?&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;?= $i++ ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;img src=&quot;img/&lt;?= $row['gambar'] ?&gt;&quot; alt=&quot;Gambar&quot; width=&quot;60&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?= $row[&quot;nama&quot;] ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?= $row[&quot;prodi&quot;] ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?= $row[&quot;fakultas&quot;] ?&gt;&lt;/td&gt;
+            &lt;td width=&quot;100&quot;&gt;
+                &lt;a href=&quot;&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#id&lt;?= $row[&quot;id&quot;] ?&gt;&quot;
+                    style=&quot;text-decoration: none&quot;&gt;
+                    &lt;i class=&quot;fas fa-edit&quot; style=&quot;color: blue&quot;&gt;&lt;/i&gt;
+                &lt;/a&gt; &amp;emsp;
+                &lt;a href=&quot;delete.php?id=&lt;?= $row['id'] ?&gt;&quot; onclick=&quot;return confirm('Yakin?')&quot;
+                    style=&quot;text-decoration: none&quot;&gt;
+                    &lt;i class=&quot;fas fa-trash-alt&quot; style=&quot;color: red&quot;&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+</code></pre>
+
+<blockquote>
+<ul>
+<li>$row <b>-&gt;</b> variabel untuk menampung hasil konversi query yang sudah berbentuk array asosiatif.</li>
+<li>$result <b>-&gt;</b> variabel untuk menampung hasil query yang dibuat sebelumnya.</li>
+<li>fetch_assoc() <b>-&gt;</b> fungsi untuk mengkonversi hasil query menjadi array asosiatif.</li>
+</ul>
+</blockquote>
+<p><br/></p>
+<h4 id="section-update">Section Update</h4>
+<pre><code class="php+HTML">&lt;!-- Update Data --&gt;
+&lt;?php
+    if (isset($_POST[&quot;update&quot;]) ) {
+        if (update($_POST) === TRUE ) {
+            echo &quot;&lt;script&gt;document.location.href='vModal.php';&lt;/script&gt;&quot;;
+        } else {
+            echo $conn -&gt; error;
+        }
+    }
+?&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;id&lt;?= $row[&quot;id&quot;] ?&gt;&quot; tabindex=&quot;-1&quot; 
+    aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;div class=&quot;modal-dialog modal-dialog-scrollable modal-dialog-centered&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
+                &lt;div class=&quot;modal-header&quot;&gt;
+                    &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Update Data&lt;/h5&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot; 
+                    aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;modal-body&quot;&gt;
+
+                    &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;?= $row[&quot;id&quot;] ?&gt;&quot;&gt;
+                    &lt;input type=&quot;hidden&quot; name=&quot;gambarLama&quot; value=&quot;&lt;?= $row[&quot;gambar&quot;] ?&gt;&quot;&gt;
+
+                    &lt;label for=&quot;nama&quot; class=&quot;form-label&quot;&gt;Nama&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;nama&quot; 
+                    id=&quot;nama&quot; autocomplete=&quot;off&quot; required value=&quot;&lt;?= $row[&quot;nama&quot;] ?&gt;&quot;&gt;
+
+                    &lt;label for=&quot;prodi&quot; class=&quot;form-label&quot;&gt;Prodi&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;prodi&quot; 
+                    id=&quot;prodi&quot; autocomplete=&quot;off&quot; required value=&quot;&lt;?= $row[&quot;prodi&quot;] ?&gt;&quot;&gt;
+
+                    &lt;label for=&quot;fakultas&quot; class=&quot;form-label&quot;&gt;Fakultas&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control mb-3&quot; name=&quot;fakultas&quot; 
+                    id=&quot;fakultas&quot; autocomplete=&quot;off&quot; required value=&quot;&lt;?= $row[&quot;fakultas&quot;] ?&gt;&quot;&gt;
+
+                    &lt;label for=&quot;gambar&quot; class=&quot;form-label&quot;&gt;Gambar&lt;/label&gt;&lt;br&gt;
+                    &lt;img src=&quot;img/&lt;?= $row['gambar'] ?&gt;&quot; alt=&quot;Gambar&quot; 
+                    width=&quot;100&quot; class=&quot;mb-2&quot;&gt;
+                    &lt;input type=&quot;file&quot; class=&quot;form-control mb-3&quot; name=&quot;gambar&quot; 
+                    id=&quot;gambar&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;modal-footer&quot;&gt;
+                    &lt;button type=&quot;submit&quot; name=&quot;update&quot; 
+                    class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;?php endwhile ?&gt;
+&lt;?php if(isset($errImg)) : ?&gt;
+    &lt;script&gt;
+        alert(&quot;Hanya Menerima File .jpg .png .jpeg&quot;);
+    &lt;/script&gt;
+&lt;?php endif ?&gt;
+&lt;?php if(isset($errSize)) : ?&gt;
+    &lt;script&gt;
+        alert(&quot;Maksimal Ukuran Gambar 1MB&quot;);
+    &lt;/script&gt;
+&lt;?php endif ?&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+</code></pre>
+
+<blockquote>
+<ul>
+<li>isset() <b>-&gt;</b> fungsi untuk memeriksa status objek.</li>
+<li>$_POST <b>-&gt;</b> variabel superglobal untuk menampung data yang dikirimkan.</li>
+<li>update() <b>-&gt;</b> fungsi yang dibuat untuk mengubah data.</li>
+<li>echo <b>-&gt;</b> fungsi untuk menampilkan teks ke layar.</li>
+<li>script <b>-&gt;</b> elemen untuk menuliskan syntax javascript.</li>
+<li>document.location.href <b>-&gt;</b> redirect halaman versi javascript.</li>
+<li>$conn <b>-&gt;</b> variabel global yang berisi koneksi ke database.</li>
+<li>error <b>-&gt;</b> objek untuk cek error yang terjadi.</li>
+<li>$err.. <b>-&gt;</b> variabel yang menampung status data error.</li>
+<li>alert() <b>-&gt;</b> fungsi javascript untuk menampilkan pop-up dialog.</li>
+</ul>
+</blockquote>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../register/" class="btn btn-neutral float-right" title="Register">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../pagination/" class="btn btn-neutral" title="Pagination"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy; 2020 All Rights Reserved by Sulton Muhajir</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../pagination/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../register/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

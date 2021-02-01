@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Validation - PHP Dasar</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Validation";
+    var mkdocs_page_input_path = "validation.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> PHP Dasar</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../read/">Read</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../insert/">Insert</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../update/">Update</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../delete/">Delete</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../upload/">Upload</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pagination/">Pagination</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../combined/">Combined</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../register/">Register</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../login/">Login</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../session/">Session</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cookie/">Cookie</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Validation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#validasi-client-side-javascript">Validasi Client Side - Javascript</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#validasi-server-side-php">Validasi Server Side - PHP</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">PHP Dasar</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Validation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="validasi-form">Validasi Form</h1>
+<p>Validasi form merupakan sebuah proses yang dilakukan untuk memeriksa inputan dari pengguna. Biasanya terdapat pengkondisian terkait aksi yang akan dilakukan setelah data dimasukkan. Seperti menampilkan pesan error jika inputan salah, dan melanjutkan ke proses selanjutnya jika inputan benar. </p>
+<p>Pada umumnya terdapat dua jenis validasi form pada aplikasi web, yaitu validasi client side dan validasi server side. Pada halaman ini akan dicontohkan penggunaan validasi client side menggunakan bahasa pemrograman Javascript, dan validasi server side menggunakan bahasa pemrograman PHP.</p>
+<p><br/></p>
+<h4 id="validasi-client-side-javascript">Validasi Client Side - Javascript</h4>
+<pre><code class="javascript">// Form Attribute
+onsubmit = &quot;return validation()&quot;
+
+
+function validation() {
+   const alp    = /^[a-zA-Z ]+$/;
+   const num    = /^[0-9]+$/;
+   const email  = /^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$/i;
+   const tgl    = new Date().toISOString().slice(0, 10);
+   const inp    = document.getElementById(&quot;inp&quot;);
+   const errMsg = document.getElementById(&quot;errMsg&quot;);
+
+   // Template
+   if ($condition) {
+      errMsg.innerHTML = &quot;Error Message&quot;;
+      inp.focus();
+      return false;
+   } else {
+      errMsg.innerHTML = &quot;&quot;;
+   }
+}
+
+
+// Validasi inputan kosong
+if (inp.value == &quot;&quot;)
+
+
+// Validasi alphabet
+if (!inp.value.match(alp))
+
+
+// Validasi number
+if (!inp.value.match(num))
+
+
+// Validasi email
+if (!inp.value.match(email))
+
+
+// Validasi panjang karakter
+if (inp.value.length &lt; 10 || inp.value.length &gt; 13)
+
+
+// Validasi tanggal
+if (inp.value &lt;= tgl)
+</code></pre>
+
+<blockquote>
+<ul>
+<li>return <b>-&gt;</b> nilai yang dikembalikan saat fungsi dipanggil.</li>
+<li>validation() <b>-&gt;</b> fungsi yang dibuat untuk melakukan validasi form.</li>
+<li>new <b>-&gt;</b> syntax untuk membuat objek baru.</li>
+<li>Date() <b>-&gt;</b> objek untuk membuat tanggal.</li>
+<li>toISOString() <b>-&gt;</b> method untuk mengubah objek tanggal menjadi string menggunakan standar ISO.</li>
+<li>slice() <b>-&gt;</b> method untuk mengembalikan elemen yang dipilih dalam array sebagai objek array baru.</li>
+<li>focus() <b>-&gt;</b> method untuk memfokuskan elemen.</li>
+<li>match() <b>-&gt;</b> method untuk mencari string yang cocok dengan ekspresi reguler.</li>
+</ul>
+</blockquote>
+<p><br/></p>
+<h4 id="validasi-server-side-php">Validasi Server Side - PHP</h4>
+<pre><code class="php+HTML">&lt;?php 
+// Validasi inputan kosong
+if (empty($nama)) {
+   global $errNama; $errNama = true;
+   return false;
+}
+
+
+// Validasi alphabet
+if (is_numeric($alp) == true) {
+   global $errAlp; $errAlp = true;
+   return false;
+}
+
+
+// Validasi number
+if (is_numeric($num) == false) {
+   global $errNum; $errNum = true;
+   return false;
+}
+
+
+// Validasi email
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+   global $errEm; $errEm = true;
+   return false;
+}
+
+
+// Validasi panjang karakter
+if (strlen($telp) &lt; 10 || strlen($telp) &gt; 13 ) {
+   global $errTelp; $errTelp = true;
+   return false;
+}
+
+
+// Validasi tanggal
+if ($tgl &lt;= date(&quot;Y-m-d&quot;)) {
+   global $errTgl; $errTgl = true;
+   return false;
+}
+?&gt;
+
+
+&lt;!-- Error Message --&gt;
+&lt;?php if(isset($error)) : ?&gt;
+   &lt;i style=&quot;color: red; font-size: .9rem&quot;&gt;* Error Message&lt;/i&gt;
+&lt;?php endif ?&gt;
+</code></pre>
+
+<blockquote>
+<ul>
+<li>empty() <b>-&gt;</b> fungsi untuk cek apakah suatu variabel kosong.</li>
+<li>is_numeric() <b>-&gt;</b> fungsi untuk cek apakah variabel berupa number.</li>
+<li>filter_var() <b>-&gt;</b> fungsi untuk filter variabel dengan filter yang ditentukan.</li>
+<li>FILTER_VALIDATE_EMAIL <b>-&gt;</b> filter untuk validasi alamat email.</li>
+<li>strlen() <b>-&gt;</b> fungsi untuk menghitung jumlah karakter string dalam suatu variabel.</li>
+<li>date() <b>-&gt;</b> fungsi untuk menampilkan data tanggal sesuai dengan format yang diinginkan.</li>
+<li>global <b>-&gt;</b> syntax untuk memanggil elemen global, elemen diluar fungsi.</li>
+<li>$err.. <b>-&gt;</b> variabel yang menampung status data error.</li>
+<li>return <b>-&gt;</b> nilai yang dikembalikan saat fungsi dipanggil.</li>
+<li>isset() <b>-&gt;</b> fungsi untuk memeriksa status objek.</li>
+</ul>
+</blockquote>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../cookie/" class="btn btn-neutral" title="Cookie"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy; 2020 All Rights Reserved by Sulton Muhajir</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../cookie/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
