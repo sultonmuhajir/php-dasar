@@ -144,13 +144,13 @@
 <pre><code class="php">&lt;?php 
    // Membuat Cookie
    if(isset($_POST[&quot;remember&quot;])) {
-      setcookie(&quot;id&quot;, $row[&quot;id_user&quot;], time()+3600);
+      setcookie(&quot;num&quot;, $row[&quot;id_user&quot;], time()+3600);
       setcookie(&quot;key&quot;, hash(&quot;sha256&quot;, $row[&quot;username&quot;]), time()+3600);
    }
 
 
    // Menghapus Cookie
-   setcookie(&quot;id&quot;, &quot;&quot;, time()-3600);
+   setcookie(&quot;num&quot;, &quot;&quot;, time()-3600);
    setcookie(&quot;key&quot;, &quot;&quot;, time()-3600);
 ?&gt;
 </code></pre>
@@ -170,11 +170,11 @@
    session_start();
    require &quot;functions.php&quot;;
 
-   if (isset($_COOKIE[&quot;id&quot;]) &amp;&amp; isset($_COOKIE[&quot;key&quot;])) {
-      $id  = $_COOKIE[&quot;id&quot;];
+   if (isset($_COOKIE[&quot;num&quot;]) &amp;&amp; isset($_COOKIE[&quot;key&quot;])) {
+      $num = $_COOKIE[&quot;num&quot;];
       $key = $_COOKIE[&quot;key&quot;];
 
-      $result = $conn -&gt; query(&quot;SELECT username FROM user WHERE id_user=$id &quot;);
+      $result = $conn -&gt; query(&quot;SELECT username FROM user WHERE id_user=$num&quot;);
       $row    = $result -&gt; fetch_assoc();
 
       if ($key === hash(&quot;sha256&quot;, $row[&quot;username&quot;])) {
