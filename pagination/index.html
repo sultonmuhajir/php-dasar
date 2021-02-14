@@ -1,147 +1,156 @@
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Pagination - PHP Dasar</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
 
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Pagination";
-    var mkdocs_page_input_path = "pagination.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<link rel="shortcut icon" href="../img/favicon.ico">
+	<title>Pagination - PHP Dasar</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+	<link rel="stylesheet" href="../css/theme.css" />
+	<link rel="stylesheet" href="../css/theme_extra.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+
+	<script>
+		// Current page data
+		var mkdocs_page_name = "Pagination";
+		var mkdocs_page_input_path = "pagination.md";
+		var mkdocs_page_url = null;
+	</script>
+
+	<script src="../js/jquery-2.1.1.min.js" defer></script>
+	<script src="../js/modernizr-2.8.3.min.js" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script>
+		hljs.initHighlightingOnLoad();
+	</script>
+
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
+	<div class="wy-grid-for-nav">
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> PHP Dasar</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../read/">Read</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../insert/">Insert</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../update/">Update</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../delete/">Delete</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../upload/">Upload</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Pagination</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#code-php">Code PHP</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#code-pagination">Code Pagination</a>
-    </li>
-    </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../combined/">Combined</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../register/">Register</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../login/">Login</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../session/">Session</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cookie/">Cookie</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a>
-                    </li>
-                </ul>
-      </div>
-    </div>
-    </nav>
+		<nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+			<div class="wy-side-scroll">
+				<div class="wy-side-nav-search">
+					<a href=".." class="icon icon-home"> PHP Dasar</a>
+					<div role="search">
+						<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+							<input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+						</form>
+					</div>
+				</div>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+				<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+						</li>
+					</ul>
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="../read/">Read</a>
+						</li>
+					</ul>
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="../insert/">Insert</a>
+						</li>
+					</ul>
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="../update/">Update</a>
+						</li>
+					</ul>
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="../delete/">Delete</a>
+						</li>
+					</ul>
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="../upload/">Upload</a>
+						</li>
+					</ul>
+					<ul class="current">
+						<li class="toctree-l1 current"><a class="reference internal current" href="./">Pagination</a>
+							<ul class="current">
+								<li class="toctree-l2"><a class="reference internal" href="#code-php">Code PHP</a>
+								</li>
+								<li class="toctree-l2"><a class="reference internal" href="#code-pagination">Code Pagination</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="../combined/">Combined</a>
+						</li>
+					</ul>
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="../register/">Register</a>
+						</li>
+					</ul>
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="../login/">Login</a>
+						</li>
+					</ul>
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="../session/">Session</a>
+						</li>
+					</ul>
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="../cookie/">Cookie</a>
+						</li>
+					</ul>
+					<ul>
+						<li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">PHP Dasar</a>
-      </nav>
+		<section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Pagination</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="pagination">Pagination</h1>
-<p>Pagination adalah proses membagi konten atau bagian dari konten yang ada pada situs web menjadi beberapa halaman terpisah. Pagination dirancang untuk membantu pengunjung situs agar tidak kewalahan oleh banyak informasi yang termuat di satu halaman ke halaman yang berbeda.</p>
-<p><br/></p>
-<h4 id="code-php">Code PHP</h4>
-<pre><code class="php">&lt;?php
+
+			<nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+				<i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+				<a href="..">PHP Dasar</a>
+			</nav>
+
+
+			<div class="wy-nav-content">
+				<div class="rst-content">
+					<div role="navigation" aria-label="breadcrumbs navigation">
+						<ul class="wy-breadcrumbs">
+							<li><a href="..">Docs</a> &raquo;</li>
+
+
+
+							<li>Pagination</li>
+							<li class="wy-breadcrumbs-aside">
+
+							</li>
+						</ul>
+
+						<hr />
+					</div>
+					<div role="main">
+						<div class="section">
+
+							<h1 id="pagination">Pagination</h1>
+							<p>Pagination adalah proses membagi konten atau bagian dari konten yang ada pada situs web menjadi
+								beberapa halaman terpisah. Pagination dirancang untuk membantu pengunjung situs agar tidak
+								kewalahan oleh banyak informasi yang termuat di satu halaman ke halaman yang berbeda.</p>
+							<p><br /></p>
+							<h4 id="code-php">Code PHP</h4>
+							<pre><i class="far fa-clone" onclick="copyCode(code)"></i><code id="code" class="php">&lt;?php
    require &quot;functions.php&quot;;
 
    $limit  = 10;
@@ -154,27 +163,29 @@
 ?&gt;
 </code></pre>
 
-<blockquote>
-<ul>
-<li>require <b>-&gt;</b> fungsi untuk memuat file php lain.</li>
-<li>$limit <b>-&gt;</b> variabel untuk menampung banyak data yang akan ditampilkan pada satu halaman.</li>
-<li>$result <b>-&gt;</b> variabel untuk menampung hasil query yang dibuat.</li>
-<li>$conn <b>-&gt;</b> variabel global yang berisi koneksi ke database.</li>
-<li>query() <b>-&gt;</b> fungsi untuk membuat query.</li>
-<li>$data <b>-&gt;</b> variabel untuk menampung semua data hasil query.</li>
-<li>num_rows <b>-&gt;</b> objek untuk mengetahui jumlah baris dari tabel hasil query.</li>
-<li>$page <b>-&gt;</b> variabel untuk menampung jumlah halaman.</li>
-<li>ceil() <b>-&gt;</b> fungsi untuk membulatkan angka ke atas.</li>
-<li>$aktif <b>-&gt;</b> variabel untuk menentukan halaman aktif.</li>
-<li>isset() <b>-&gt;</b> fungsi untuk memeriksa status objek.</li>
-<li>$_GET <b>-&gt;</b> variabel superglobal untuk menampung data yang dikirimkan melalui url.</li>
-<li>$awal <b>-&gt;</b> variabel untuk menentukan data awal pada suatu halaman.</li>
-<li>$menu <b>-&gt;</b> variabel untuk menampung hasil query yang dibuat.</li>
-</ul>
-</blockquote>
-<p><br/></p>
-<h4 id="code-pagination">Code Pagination</h4>
-<pre><code class="php+HTML">&lt;!-- First --&gt;
+							<blockquote>
+								<ul>
+									<li>require <b>-&gt;</b> fungsi untuk memuat file php lain.</li>
+									<li>$limit <b>-&gt;</b> variabel untuk menampung banyak data yang akan ditampilkan pada satu
+										halaman.</li>
+									<li>$result <b>-&gt;</b> variabel untuk menampung hasil query yang dibuat.</li>
+									<li>$conn <b>-&gt;</b> variabel global yang berisi koneksi ke database.</li>
+									<li>query() <b>-&gt;</b> fungsi untuk membuat query.</li>
+									<li>$data <b>-&gt;</b> variabel untuk menampung semua data hasil query.</li>
+									<li>num_rows <b>-&gt;</b> objek untuk mengetahui jumlah baris dari tabel hasil query.</li>
+									<li>$page <b>-&gt;</b> variabel untuk menampung jumlah halaman.</li>
+									<li>ceil() <b>-&gt;</b> fungsi untuk membulatkan angka ke atas.</li>
+									<li>$aktif <b>-&gt;</b> variabel untuk menentukan halaman aktif.</li>
+									<li>isset() <b>-&gt;</b> fungsi untuk memeriksa status objek.</li>
+									<li>$_GET <b>-&gt;</b> variabel superglobal untuk menampung data yang dikirimkan melalui url.
+									</li>
+									<li>$awal <b>-&gt;</b> variabel untuk menentukan data awal pada suatu halaman.</li>
+									<li>$menu <b>-&gt;</b> variabel untuk menampung hasil query yang dibuat.</li>
+								</ul>
+							</blockquote>
+							<p><br /></p>
+							<h4 id="code-pagination">Code Pagination</h4>
+							<pre><i class="far fa-clone" onclick="copyCode(code2)"></i><code id="code2" class="php+HTML">&lt;!-- First --&gt;
 &lt;?php if($aktif &gt; 1) : ?&gt;
    &lt;div&gt;&lt;a href=&quot;?p=&lt;?= 1; ?&gt;&quot;&gt;First&lt;/a&gt;&lt;/div&gt;
 &lt;?php endif ?&gt;
@@ -208,68 +219,75 @@
 &lt;?php endif ?&gt;
 </code></pre>
 
-<blockquote>
-<ul>
-<li>First <b>-&gt;</b> pagination untuk menampilkan halaman pertama.</li>
-<li>Previos <b>-&gt;</b> pagination untuk menampilkan halaman sebelumnya.</li>
-<li>Pagination <b>-&gt;</b> pagination untuk menampilkan setiap halaman.</li>
-<li>Next <b>-&gt;</b> pagination untuk menampilkan halaman selanjutnya.</li>
-<li>Last <b>-&gt;</b> pagination untuk menampilkan halaman terakhir.</li>
-</ul>
-</blockquote>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../combined/" class="btn btn-neutral float-right" title="Combined">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../upload/" class="btn btn-neutral" title="Upload"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
-  
+							<blockquote>
+								<ul>
+									<li>First <b>-&gt;</b> pagination untuk menampilkan halaman pertama.</li>
+									<li>Previos <b>-&gt;</b> pagination untuk menampilkan halaman sebelumnya.</li>
+									<li>Pagination <b>-&gt;</b> pagination untuk menampilkan setiap halaman.</li>
+									<li>Next <b>-&gt;</b> pagination untuk menampilkan halaman selanjutnya.</li>
+									<li>Last <b>-&gt;</b> pagination untuk menampilkan halaman terakhir.</li>
+								</ul>
+							</blockquote>
 
-  <hr/>
+						</div>
+					</div>
+					<footer>
 
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-      <p>&copy; 2020 All Rights Reserved by Sulton Muhajir</p>
-    
-  </div>
+						<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
+							<a href="../combined/" class="btn btn-neutral float-right" title="Combined">Next <span
+									class="icon icon-circle-arrow-right"></span></a>
 
-    </section>
 
-  </div>
+							<a href="../upload/" class="btn btn-neutral" title="Upload"><span
+									class="icon icon-circle-arrow-left"></span> Previous</a>
 
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../upload/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../combined/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
+						</div>
+
+
+						<hr />
+
+						<div role="contentinfo">
+							<!-- Copyright etc -->
+
+							<p>&copy; 2020 All Rights Reserved by Sulton Muhajir</p>
+
+						</div>
+
+						Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a
+							href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a
+							href="https://readthedocs.org">Read the Docs</a>.
+					</footer>
+
+				</div>
+			</div>
+
+		</section>
+
+	</div>
+
+	<div class="rst-versions" role="note" aria-label="versions">
+		<span class="rst-current-version" data-toggle="rst-current-version">
+
+
+			<span><a href="../upload/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+
+
+			<span style="margin-left: 15px"><a href="../combined/" style="color: #fcfcfc">Next &raquo;</a></span>
+
+		</span>
+	</div>
+	<script>
+		var base_url = '..';
+	</script>
+	<script src="../js/theme.js" defer></script>
+	<script src="../search/main.js" defer></script>
+	<script defer>
+		window.onload = function () {
+			SphinxRtdTheme.Navigation.enable(true);
+		};
+	</script>
 
 </body>
+
 </html>
