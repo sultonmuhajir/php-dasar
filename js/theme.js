@@ -127,38 +127,54 @@ require = function n(e, i, t) {
 
 
 // Copy Code
-function copyCode(code) {
+function copyCode1(code1) {
    const range = document.createRange();
-   range.selectNode(code);
+   range.selectNode(code1);
    window.getSelection().removeAllRanges();
    window.getSelection().addRange(range);
    document.execCommand("copy");
    window.getSelection().removeAllRanges();
+   document.querySelector(".copy1").style.display = "block";
+   setTimeout(function () {
+      document.querySelector(".copy1").style.display = "none"
+   }, 1000);
 }
 
-function copyCode(code2) {
+function copyCode2(code2) {
    const range = document.createRange();
    range.selectNode(code2);
    window.getSelection().removeAllRanges();
    window.getSelection().addRange(range);
    document.execCommand("copy");
    window.getSelection().removeAllRanges();
+   document.querySelector(".copy2").style.display = "block";
+   setTimeout(function () {
+      document.querySelector(".copy2").style.display = "none"
+   }, 1000);
 }
 
-function copyCode(code3) {
+function copyCode3(code3) {
    const range = document.createRange();
    range.selectNode(code3);
    window.getSelection().removeAllRanges();
    window.getSelection().addRange(range);
    document.execCommand("copy");
    window.getSelection().removeAllRanges();
+   document.querySelector(".copy3").style.display = "block";
+   setTimeout(function () {
+      document.querySelector(".copy3").style.display = "none"
+   }, 1000);
 }
 
-function copyCode(code4) {
+function copyCode4(code4) {
    const range = document.createRange();
    range.selectNode(code4);
    window.getSelection().removeAllRanges();
    window.getSelection().addRange(range);
    document.execCommand("copy");
    window.getSelection().removeAllRanges();
+   document.querySelector(".copy4").style.display = "block";
+   setTimeout(function () {
+      document.querySelector(".copy4").style.display = "none"
+   }, 1000);
 }

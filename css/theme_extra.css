@@ -10,6 +10,18 @@
 	position: relative;
 }
 
+.rst-content pre .copy {
+	background-color: #333;
+	color: #eee;
+	font: .8rem "Lato";
+	padding: .3rem 1rem;
+	border-radius: 3px;
+	position: absolute;
+	top: -2rem;
+	right: 0;
+	display: none;
+}
+
 .rst-content pre .fa-clone {
 	position: absolute;
 	top: .4rem;
