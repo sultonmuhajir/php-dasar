@@ -13,11 +13,11 @@
 .rst-content pre .copy {
 	background-color: #333;
 	color: #eee;
-	font: .8rem "Lato";
-	padding: .3rem 1rem;
+	font: .7rem "Lato";
+	padding: .3rem .8rem;
 	border-radius: 3px;
 	position: absolute;
-	top: -2rem;
+	top: -1.7rem;
 	right: 0;
 	display: none;
 }
