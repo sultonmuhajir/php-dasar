@@ -3,19 +3,19 @@ theme: readthedocs
 
 # Page
 nav:
-- Home : index.md
-- Read : read.md
-- Insert : insert.md
-- Update : update.md
-- Delete : delete.md
-- Upload : upload.md
-- Pagination : pagination.md
-- Combined : combined.md
-- Register : register.md
-- Login : login.md
-- Session : session.md
-- Cookie : cookie.md
-- Validation : validation.md
+   - Home: index.md
+   - Read: read.md
+   - Insert: insert.md
+   - Update: update.md
+   - Delete: delete.md
+   - Upload: upload.md
+   - Pagination: pagination.md
+   - Combined: combined.md
+   - Register: register.md
+   - Login: login.md
+   - Session: session.md
+   - Cookie: cookie.md
+   - Validation: validation.md
 
 # Copyright
-copyright: '&copy; 2020 All Rights Reserved by Sulton Muhajir'
+copyright: "&copy; 2020 All Rights Reserved by Sulton Muhajir"
